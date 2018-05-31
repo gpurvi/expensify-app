@@ -2,3 +2,5 @@ node_modules/
 .idea/
 public/bundle.js
 public/style.css
+.env.test
+.env.development
