@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import expenses from '../tests/fixtures/expenses';
+
 
 const config = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -13,5 +13,6 @@ const config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase, database as default};
+export {firebase, googleAuthProvider, database as default};

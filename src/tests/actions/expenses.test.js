@@ -67,16 +67,13 @@ test('should edit expense on firebase', (done) => {
         note: 'New note value'
     };
     const id = expenses[0].id;
-
     store.dispatch(startEditExpense(id, expenseUpdate)).then(() => {
         const action = store.getActions();
-
         expect(action[0]).toEqual({
             type: 'EDIT_EXPENSE',
             id,
             updates: expenseUpdate
         });
-
         return database.ref(`expenses/${id}`).once('value');
     }).then((snapshot) => {
         expect(snapshot.val().note).toBe(expenseUpdate.note);
